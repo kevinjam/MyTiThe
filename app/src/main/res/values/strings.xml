@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyTithe</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_tithe">Enter Your Income</string>
+    <string name="findmytith">Find My Tithe</string>
+    <string name="admob_app_id">ca-app-pub-8831705983843599~1119760461</string>
+    <string name="ad_unit">ca-app-pub-8831705983843599/3834210258</string>
+    <string name="ad_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="welcome_myTithe">Welcome To MyTithe</string>
+</resources>
