@@ -7,10 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -26,19 +23,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var madview:AdView
     lateinit var total_amount : TextView
     lateinit var amount: MyEditText
+    lateinit var calculate:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        MobileAds.initialize(applicationContext,
-//               getString(R.string.admob_app_id))
         setSupportActionBar(toolbar)
 
         spinner = findViewById(R.id.package_select)
         madview = findViewById(R.id.adView)
         total_amount = findViewById(R.id.total_amount)
         amount = findViewById(R.id.amount_txt)
+        calculate = findViewById(R.id.calculate)
+
         MobileAds.initialize(this@MainActivity, getString(R.string.admob_app_id))
 
         fab.setOnClickListener { view ->
@@ -46,17 +44,30 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-
-
         bannerAdviews()
         calculateTithe()
+
+        calculate.setOnClickListener({
+            if (amount.text.toString().isBlank()){
+                amount.error = "Enter Amount"
+            }else{
+                val calendar: Calendar = Calendar.getInstance()
+                val entered_amount : String = amount.text.toString()
+                if (entered_amount.isNotEmpty()){
+                    val everyweek : Long = entered_amount.toLong()
+                    val total = 0.1 * everyweek
+                    total_amount.text = total.toString()
+                }
+            }
+
+
+        })
 
                 val adapter :ArrayAdapter<CharSequence> =
                         ArrayAdapter.createFromResource(this,R.array.package_select,
                                 android.R.layout.simple_spinner_dropdown_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
-
         spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener
         {
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -65,14 +76,55 @@ class MainActivity : AppCompatActivity() {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 log("My Position  " + position)
-
                 when(position){
-                    0 ->{
-                      log("Zero " +position)
+                    0->{
+                        log("Select")
+                    }
+
+                    1 ->{
+                      log("EveryWeek " +position)
+                        val calendar: Calendar = Calendar.getInstance()
+                        val dayoftheWeek = calendar.getActualMaximum(Calendar.DAY_OF_WEEK_IN_MONTH)
+                        val monthinYear = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+//                      var amount: String = total_amount.text.toString()
+//                      var amount :Long = 500
+                        val entered_amount : String = amount.text.toString()
+                        if (entered_amount.isNotEmpty()){
+                            val everyweek : Long = entered_amount.toLong()
+                            val total = 0.1 * everyweek
+                            total_amount.text = total.toString()
+
+                            log("Each Month $total")
+
+
+                            log("Enter Amount $entered_amount")
+//                            val weeklytotal = (0.1 / dayoftheWeek) * entered_amount.toLong()
+                            val weeklytotal = (0.1) * entered_amount.toLong()
+                            log("Week :: "+weeklytotal.toString())
+                            log("dayoftheWeek " +dayoftheWeek)
+//                            total_amount.text = weeklytotal.toString()
+                        }
 
                     }
-                    1-> {
-                        log("Every Week")
+                    2-> {
+                        log("Each  Month")
+                        val calendar: Calendar = Calendar.getInstance()
+                        val dayoftheWeek = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+//                      var amount: String = total_amount.text.toString()
+//                      var amount :Long = 500
+                        val entered_amount : String = amount.text.toString()
+
+                        val weeklytotal = (entered_amount.toLong() * dayoftheWeek) / 0.1
+                        log("EachMonth :: "+weeklytotal.toString())
+                        log("dayoftheWeek " +dayoftheWeek)
+                            total_amount.text = weeklytotal.toString()
+
+
+                    }
+                    3->{
+                        log("One $position")
+                        log("Every Year")
                         val calendar: Calendar = Calendar.getInstance()
                         val dayoftheWeek = calendar.getActualMaximum(Calendar.DAY_OF_WEEK_IN_MONTH)
 //                      var amount: String = total_amount.text.toString()
@@ -80,21 +132,9 @@ class MainActivity : AppCompatActivity() {
                         val entered_amount : String = amount.text.toString()
 
                         val weeklytotal = (0.1 / dayoftheWeek) * entered_amount.toLong()
-                            log("Week :: "+weeklytotal.toString())
+                        log("Week :: "+weeklytotal.toString())
                         log("dayoftheWeek " +dayoftheWeek)
-                            total_amount.text = weeklytotal.toString()
-
-
-                    }
-                    2->{
-                        log("One $position")
-
-
-                    }
-                    3->{
-                        log("Every Month")
-                        log("3 $position")
-                        log("Every Year")
+                        total_amount.text = weeklytotal.toString()
                     }
                 }
 

@@ -25,14 +25,15 @@
     android:layout_gravity="center"/>
     </LinearLayout>
 
+
     <com.kevinjanvier.mytithe.custom.MyEditText
         android:id="@+id/amount_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_tithe"
+        android:hint="@string/enter_amount"
         android:inputType="numberDecimal"
         android:textColorHint="#a9b0c3"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="0dp"
         android:textSize="18sp"
         android:background="#00000000"
         android:padding="@dimen/space10"
@@ -100,27 +101,38 @@
         android:background="@android:color/white"
        >
 
+        <Button
+            android:id="@+id/calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calulate"
+            android:background="@drawable/btn_round"
+            android:textColor="@android:color/white"
+            android:layout_margin="@dimen/space10"/>
+
         <!--Every Week-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:gravity="">
+            android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Each Week : "
                 android:textSize="18sp"
                 android:padding="@dimen/space10"
+                android:textColor="@color/colorblack"
                 android:layout_marginRight="@dimen/space20"
                 android:layout_marginEnd="@dimen/space20"/>
             <TextView
                 android:id="@+id/total_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18sp"
+                android:text="500"
+                android:textSize="20sp"
+                android:textColor="@color/colorblack"
                 android:padding="@dimen/space10"/>
 
         </LinearLayout>
@@ -129,7 +141,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,6 +166,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:visibility="gone"
+
             >
             <TextView
                 android:layout_width="wrap_content"

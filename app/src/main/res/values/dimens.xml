@@ -5,4 +5,5 @@
     <dimen name="space5">5dp</dimen>
     <dimen name="space15">15dp</dimen>
     <dimen name="space20">20dp</dimen>
+    <dimen name="txt20">20sp</dimen>
 </resources>

@@ -7,4 +7,6 @@
     <string name="ad_unit">ca-app-pub-8831705983843599/3834210258</string>
     <string name="ad_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="welcome_myTithe">Welcome To MyTithe</string>
+    <string name="enter_amount">Enter Amount </string>
+    <string name="calulate">Calculate</string>
 </resources>
