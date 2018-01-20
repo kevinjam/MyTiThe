@@ -166,7 +166,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    
+
 
     private fun bannerAdviews() {
         val ad_request : AdRequest = AdRequest.Builder()
