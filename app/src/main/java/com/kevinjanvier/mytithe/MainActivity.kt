@@ -1,7 +1,10 @@
 package com.kevinjanvier.mytithe
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var total_amount : TextView
     lateinit var amount: MyEditText
     lateinit var calculate:Button
+    lateinit var mdialog:Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +45,12 @@ class MainActivity : AppCompatActivity() {
         amount = findViewById(R.id.amount_txt)
         calculate = findViewById(R.id.calculate)
 
+        mdialog = Dialog(this)
+
         MobileAds.initialize(this@MainActivity, getString(R.string.admob_app_id))
 
         fab_share.setOnClickListener {
-            shareIntent()
+            ShowPopup()
 
         }
 
@@ -157,6 +163,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
+    fun ShowPopup(){
+
+
+        mdialog.setContentView(R.layout.custompopup)
+
+        val txtclose = mdialog.findViewById<TextView>(R.id.txtclose)
+        txtclose.setText("M")
+        val btnFollow = mdialog.findViewById<Button>(R.id.btnfollow)
+
+        txtclose.setOnClickListener {
+            mdialog.dismiss()
+        }
+
+       mdialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        mdialog.show()
+    }
+
     fun shareIntent(){
         val shareInt = Intent()
         shareInt.action = Intent.ACTION_SEND
@@ -166,6 +191,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    fun followMe(view:View){
+
+    }
 
 
     private fun bannerAdviews() {

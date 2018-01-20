@@ -13,16 +13,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space15"
-    >
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/findmytith"
-    android:textSize="20sp"
-    android:textColor="@color/colorblack"
-    android:gravity="center"
-    android:layout_gravity="center"/>
+        android:padding="@dimen/space20">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/findmytith"
+            android:textColor="@color/colorblack"
+            android:textSize="20sp" />
     </LinearLayout>
 
 
@@ -30,45 +30,42 @@
         android:id="@+id/amount_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space10"
+        android:layout_marginRight="@dimen/space10"
+        android:layout_marginStart="@dimen/space10"
+        android:layout_marginTop="0dp"
+        android:background="#00000000"
         android:hint="@string/enter_amount"
         android:inputType="numberDecimal"
-        android:textColorHint="#a9b0c3"
-        android:layout_marginTop="0dp"
-        android:textSize="18sp"
-        android:background="#00000000"
         android:padding="@dimen/space10"
-        android:layout_marginLeft="@dimen/space10"
-        android:layout_marginStart="@dimen/space10"
-        android:layout_marginRight="@dimen/space10"
+        android:textColorHint="#a9b0c3"
+        android:textSize="18sp"
 
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#a9b0c3"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="@dimen/space15"
-        android:layout_marginStart="@dimen/space15"
-        android:layout_marginRight="@dimen/space15"
         android:layout_marginEnd="@dimen/space15"
-        />
-
+        android:layout_marginLeft="@dimen/space15"
+        android:layout_marginRight="@dimen/space15"
+        android:layout_marginStart="@dimen/space15"
+        android:layout_marginTop="2dp"
+        android:background="#a9b0c3" />
 
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/space10"
         android:elevation="@dimen/space10"
+        android:gravity="center"
         android:visibility="visible"
         app:contentPadding="@dimen/space10"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="188dp"
         tools:ignore="MissingConstraints"
-        android:layout_marginBottom="@dimen/space10"
-        android:layout_gravity="center"
-        android:gravity="center"
-        >
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="188dp">
 
 
         <Spinner
@@ -81,14 +78,13 @@
             android:padding="@dimen/space5"
             android:spinnerMode="dropdown"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="124dp"
-           />
+            tools:layout_editor_absoluteY="124dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:visibility="gone" />
 
 
     </android.support.v7.widget.CardView>
@@ -98,26 +94,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Each Week : "
-            android:textSize="18sp"
-            android:padding="@dimen/space10"
-            android:textColor="@color/colorblack"
+            android:layout_marginEnd="@dimen/space20"
             android:layout_marginRight="@dimen/space20"
-            android:layout_marginEnd="@dimen/space20"/>
+            android:padding="@dimen/space10"
+            android:text="Each Week : "
+            android:textColor="@color/colorblack"
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/total_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/space10"
             android:text=""
-            android:textSize="20sp"
             android:textColor="@color/colorblack"
-            android:padding="@dimen/space10"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -125,19 +123,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/space20"
         android:background="@android:color/white"
-       >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/calculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/calulate"
+            android:layout_margin="@dimen/space10"
             android:background="@drawable/btn_round"
-            android:textColor="@android:color/white"
-            android:layout_margin="@dimen/space10"/>
+            android:text="@string/calulate"
+            android:textColor="@android:color/white" />
 
 
         <!--EveryDay-->
@@ -145,22 +142,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Each Moth:"
-                android:textSize="18sp"
-                android:padding="@dimen/space10"
+                android:layout_marginEnd="@dimen/space20"
                 android:layout_marginRight="@dimen/space20"
-                android:layout_marginEnd="@dimen/space20"/>
+                android:padding="@dimen/space10"
+                android:text="Each Moth:"
+                android:textSize="18sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/space10"
                 android:text="2000"
-                android:textSize="18sp"
-                android:padding="@dimen/space10"/>
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -172,20 +170,22 @@
             android:visibility="gone"
 
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Each Year:"
-                android:textSize="18sp"
-                android:padding="@dimen/space10"
+                android:layout_marginEnd="@dimen/space20"
                 android:layout_marginRight="@dimen/space20"
-                android:layout_marginEnd="@dimen/space20"/>
+                android:padding="@dimen/space10"
+                android:text="Each Year:"
+                android:textSize="18sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/space10"
                 android:text="3000"
-                android:textSize="18sp"
-                android:padding="@dimen/space10"/>
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -195,14 +195,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/ad_unit">
-        </com.google.android.gms.ads.AdView>
+            ads:adUnitId="@string/ad_unit"></com.google.android.gms.ads.AdView>
     </LinearLayout>
 
 </LinearLayout>
