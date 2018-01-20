@@ -166,16 +166,16 @@ class MainActivity : AppCompatActivity() {
 
 
     fun ShowPopup(){
-
-
         mdialog.setContentView(R.layout.custompopup)
-
         val txtclose = mdialog.findViewById<TextView>(R.id.txtclose)
-        txtclose.setText("M")
+        txtclose.text = "X"
         val btnFollow = mdialog.findViewById<Button>(R.id.btnfollow)
-
         txtclose.setOnClickListener {
             mdialog.dismiss()
+        }
+
+        btnFollow.setOnClickListener {
+
         }
 
        mdialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -188,11 +188,6 @@ class MainActivity : AppCompatActivity() {
         shareInt.type="text/plain"
         shareInt.putExtra(Intent.EXTRA_TEXT, "Hey there , i found this app Which help you to Give Tithe")
         startActivity(Intent.createChooser(shareInt,"send To"))
-
-    }
-
-
-    fun followMe(view:View){
 
     }
 
