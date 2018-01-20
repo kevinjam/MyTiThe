@@ -3,13 +3,14 @@
     package="com.kevinjanvier.mytithe">
 
     <application
-        android:name=".AppTithe"
+        android:name=".controller.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -26,7 +27,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".tutorial.Intro"></activity>
+        <activity android:name=".tutorial.Intro"/>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.kevinjanvier.mytithe
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +9,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
@@ -15,6 +18,7 @@ import com.google.android.gms.ads.MobileAds
 import com.kevinjanvier.mytithe.custom.MyEditText
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.NumberFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,15 +43,16 @@ class MainActivity : AppCompatActivity() {
 
         MobileAds.initialize(this@MainActivity, getString(R.string.admob_app_id))
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        fab_share.setOnClickListener {
+            shareIntent()
+
         }
 
         bannerAdviews()
         calculateTithe()
 
         calculate.setOnClickListener({
+
             if (amount.text.toString().isBlank()){
                 amount.error = "Enter Amount"
             }else{
@@ -56,7 +61,10 @@ class MainActivity : AppCompatActivity() {
                 if (entered_amount.isNotEmpty()){
                     val everyweek : Long = entered_amount.toLong()
                     val total = 0.1 * everyweek
-                    total_amount.text = total.toString()
+                    val numberFormat = NumberFormat.getCurrencyInstance()
+
+                    total_amount.text = total.toInt().toString()
+                    hideKeyboard()
                 }
             }
 
@@ -82,7 +90,9 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     1 ->{
-                      log("EveryWeek " +position)
+                        hideKeyboard()
+
+                        log("EveryWeek " +position)
                         val calendar: Calendar = Calendar.getInstance()
                         val dayoftheWeek = calendar.getActualMaximum(Calendar.DAY_OF_WEEK_IN_MONTH)
                         val monthinYear = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -93,9 +103,9 @@ class MainActivity : AppCompatActivity() {
                         if (entered_amount.isNotEmpty()){
                             val everyweek : Long = entered_amount.toLong()
                             val total = 0.1 * everyweek
-                            total_amount.text = total.toString()
+                            total_amount.text = total.toInt().toString()
 
-                            log("Each Month $total")
+                            log("Each Month ${total.toInt()}")
 
 
                             log("Enter Amount $entered_amount")
@@ -108,6 +118,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
                     2-> {
+                        hideKeyboard()
                         log("Each  Month")
                         val calendar: Calendar = Calendar.getInstance()
                         val dayoftheWeek = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -119,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                         log("EachMonth :: "+weeklytotal.toString())
                         log("dayoftheWeek " +dayoftheWeek)
                             total_amount.text = weeklytotal.toString()
+
 
 
                     }
@@ -143,10 +155,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
 
-
+    fun shareIntent(){
+        val shareInt = Intent()
+        shareInt.action = Intent.ACTION_SEND
+        shareInt.type="text/plain"
+        shareInt.putExtra(Intent.EXTRA_TEXT, "Hey there , i found this app Which help you to Give Tithe")
+        startActivity(Intent.createChooser(shareInt,"send To"))
 
     }
+
+    
 
     private fun bannerAdviews() {
         val ad_request : AdRequest = AdRequest.Builder()
@@ -192,10 +212,19 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+      val id = item.itemId
+        if (id == R.id.action_share){
+            shareIntent()
         }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun hideKeyboard(){
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (inputManager.isAcceptingText){
+            inputManager.hideSoftInputFromWindow(currentFocus.windowToken,0)
+        }
+
     }
 
     private fun log(msg:String){

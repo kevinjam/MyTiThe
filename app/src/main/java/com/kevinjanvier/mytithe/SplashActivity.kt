@@ -5,6 +5,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.kevinjanvier.mytithe.controller.App
+import com.kevinjanvier.mytithe.tutorial.Intro
 
 class SplashActivity : AppCompatActivity() {
 
@@ -16,10 +18,17 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+
         Handler().postDelayed({
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-            overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
-            finish()
+            if (App.prefs.islogIn){
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                finish()
+            }else{
+                startActivity(Intent(this@SplashActivity, Intro::class.java))
+                overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                finish()
+            }
         }, time_out.toLong())
     }
 }

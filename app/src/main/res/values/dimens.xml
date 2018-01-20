@@ -6,4 +6,8 @@
     <dimen name="space15">15dp</dimen>
     <dimen name="space20">20dp</dimen>
     <dimen name="txt20">20sp</dimen>
+    <dimen name="space30">30dp</dimen>
+    <dimen name="space30dp">40dp</dimen>
+    <dimen name="txt14">14sp</dimen>
+    <dimen name="space280">250dp</dimen>
 </resources>
