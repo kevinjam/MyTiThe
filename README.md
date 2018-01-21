@@ -1,6 +1,6 @@
 
 # MyTithe Android Application
-[![](https://jitpack.io/v/vpaliyX/SoundCloud-API.svg)](https://jitpack.io/#vpaliyX/SoundCloud-API)
+[![](https://jitpack.io/v/kevinjam/MyTiThe.svg)](https://jitpack.io/#kevinjam/MyTiThe)
 
 This project is a wrapper for the [Kevin Janvier](https://kevinjanvier.com/).
 
