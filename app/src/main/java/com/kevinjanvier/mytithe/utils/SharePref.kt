@@ -11,11 +11,19 @@ class SharePref(context: Context) {
     val prefs: SharedPreferences = context.getSharedPreferences(PREF_FILE_NAME,0)
 
     val FIRST_TIME = "firsttime"
+    val MY_CURRENCY ="currency"
 
     //    Check if the User is the FirstTime User
     var islogIn: Boolean
         get() = prefs.getBoolean(FIRST_TIME, false)
         set(value) = prefs.edit().putBoolean(FIRST_TIME, value).apply()
+
+
+    var myCurrency:String
+    get() = prefs.getString(MY_CURRENCY, "")
+    set(value) = prefs.edit().putString(MY_CURRENCY, value).apply()
+
+
 
 
 

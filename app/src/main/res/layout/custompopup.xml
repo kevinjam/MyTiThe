@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="350dp"
-    android:layout_height="490dp"
-    android:background="#263238"
+    android:layout_width="360dp"
+    android:layout_height="500dp"
+    android:background="@color/gray_dark"
     android:padding="5dp"
+    android:layout_margin="@dimen/space10"
     android:layout_gravity="center">
     <TextView
         android:id="@+id/txtclose"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/space30"
+        android:layout_height="@dimen/space30"
         android:textColor="@color/white"
-        android:text="X"
         android:textStyle="bold"
         android:layout_gravity="end"
         android:gravity="center"
@@ -19,7 +19,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +47,8 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
         <LinearLayout
             android:background="#BF360C"
             android:gravity="center"
@@ -114,18 +116,19 @@
 
     <Button
         android:id="@+id/btnfollow"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Follow Me"
-        android:layout_marginTop="25dp"
+        android:text="@string/where_should_i_give_my_tithe"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
         android:background="@color/colorPrimary"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="God bless you"
+        android:layout_height="match_parent"
+        android:text="@string/where_should_txt"
         android:textColor="@color/white"
-        android:gravity="center"/>
+        android:textSize="15sp"
+        android:lineSpacingExtra="4dp"
+        android:padding="@dimen/space5"/>
 </LinearLayout>

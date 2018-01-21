@@ -1,7 +1,6 @@
 package com.kevinjanvier.mytithe.controller
 
 import android.app.Application
-import com.facebook.stetho.Stetho
 import com.google.android.gms.ads.MobileAds
 import com.kevinjanvier.mytithe.R
 import com.kevinjanvier.mytithe.utils.SharePref
@@ -19,7 +18,7 @@ class App : Application() {
         prefs = SharePref(applicationContext)
         super.onCreate()
         MobileAds.initialize(this, getString(R.string.ad_unit))
-        Stetho.initializeWithDefaults(this)
+//        Stetho.initializeWithDefaults(this)
 
     }
 }

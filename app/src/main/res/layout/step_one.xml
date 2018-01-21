@@ -45,7 +45,7 @@
         <ImageView
             android:layout_width="@dimen/space280"
             android:layout_height="@dimen/space280"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_donate"/>
     </LinearLayout>
 </RelativeLayout>
