@@ -1,6 +1,6 @@
 
 # MyTithe Android Application
-[![](https://jitpack.io/v/kevinjam/MyTiThe.svg)](https://jitpack.io/#kevinjam/MyTiThe)
+[![Build Status](https://travis-ci.org/kevinjam/MyTiThe.svg?branch=develop)](https://travis-ci.org/kevinjam/MyTiThe)
 
 This project is a wrapper for the [Kevin Janvier](https://kevinjanvier.com/).
 
