@@ -1,8 +1,7 @@
-package com.kevinjanvier.mytithe.tutorial
+package com.kevinjanvier.mytithe.controller
 
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
@@ -13,8 +12,6 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.kevinjanvier.mytithe.R
-import com.kevinjanvier.mytithe.SplashActivity
-import com.kevinjanvier.mytithe.controller.App
 
 class Intro : AppCompatActivity() {
     private lateinit var adapter: MyViewPagerAdapter

@@ -1,12 +1,11 @@
-package com.kevinjanvier.mytithe
+package com.kevinjanvier.mytithe.controller
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.kevinjanvier.mytithe.controller.App
-import com.kevinjanvier.mytithe.tutorial.Intro
+import com.kevinjanvier.mytithe.R
 
 class SplashActivity : AppCompatActivity() {
 
