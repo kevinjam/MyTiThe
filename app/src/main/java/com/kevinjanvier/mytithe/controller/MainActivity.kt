@@ -1,6 +1,7 @@
 package com.kevinjanvier.mytithe.controller
 
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.app.Activity
 import android.app.AlarmManager
 import android.app.Dialog
@@ -10,6 +11,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -49,6 +51,14 @@ class MainActivity : AppCompatActivity() {
     var pendingIntent: PendingIntent? = null
 
 
+    fun setAlarm(message: String) : String{
+//        timeAlarm.visibility = View.VISIBLE
+//        timeAlarm.text = message
+        val msg = message
+        log("KKKKKKKKK " + msg)
+//        alarmText.text = message
+        return msg
+    }
 
 //    fun instance(): MainActivity {
 //        return inst
@@ -70,13 +80,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
         mdialog = Dialog(this)
-
         val myIntent = Intent(this, AlarmReceiver::class.java)
         pendingIntent = PendingIntent.getBroadcast(baseContext, 0, myIntent, 0)
-
-
 
         //check for the currency
         if (App.prefs.myCurrency.isEmpty()) {
@@ -91,30 +97,19 @@ class MainActivity : AppCompatActivity() {
         alarmText = findViewById(R.id.timeAlarm)
 
         alarmText.visibility = View.VISIBLE
-
-        alarmText.text = setAlarm("").toString()
-
-//        timeAlarm.text = ""
-//        print("My MESSAGES ")
-
-
-
+        alarmText.text = setAlarm("")
         amount.addTextChangedListener(onTextChangedListener())
-
-
 
         MobileAds.initialize(this@MainActivity, getString(R.string.admob_app_id))
 
         fab_share.setOnClickListener {
             showPopup()
-
         }
 
         bannerAdviews()
         calculateTithe()
 
-        calculate.setOnClickListener({
-
+        calculate.setOnClickListener{
             if (amount.text.toString().isBlank()) {
                 amount.error = "Enter Amount"
             } else {
@@ -129,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        })
+        }
 
         val adapter: ArrayAdapter<CharSequence> =
                 ArrayAdapter.createFromResource(this, R.array.package_select,
@@ -138,7 +133,6 @@ class MainActivity : AppCompatActivity() {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                log("nothing")
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
@@ -190,12 +184,9 @@ class MainActivity : AppCompatActivity() {
 
                         val parsed = BigDecimal(weeklytotal).setScale(2, BigDecimal.ROUND_FLOOR).divide(BigDecimal(100), BigDecimal.ROUND_FLOOR)
                         val formatt = NumberFormat.getCurrencyInstance().format(parsed)
-
                         log("FOrmatt $formatt")
 
                         total_amount.text = convertAmout(weeklytotal) + App.prefs.myCurrency
-
-
                     }
                     3 -> {
                         log("One $position")
@@ -212,8 +203,6 @@ class MainActivity : AppCompatActivity() {
                         total_amount.text = convertAmout(weeklytotal) + App.prefs.myCurrency
                     }
                 }
-
-
             }
 
         }
@@ -386,6 +375,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * Alarm Manager
      */
+    @TargetApi(Build.VERSION_CODES.N)
     private fun setingupAlarm() {
         mdialog.setContentView(R.layout.alarm_dialog)
 //        var alarmManager: AlarmManager? = null
@@ -395,7 +385,6 @@ class MainActivity : AppCompatActivity() {
         alarmTimePicker = mdialog.findViewById<TimePicker>(R.id.alarmTimePicker)
         val tooglebtn = mdialog.findViewById<ToggleButton>(R.id.alarmToggle)
 
-//        @TargetApi(Build.VERSION_CODES.N)
 
 
         tooglebtn.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -407,14 +396,13 @@ class MainActivity : AppCompatActivity() {
                 calendar = Calendar.getInstance()
                 calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.hour)
                 calendar.set(Calendar.MINUTE, alarmTimePicker.minute)
-
                 println("MY HOURS" +Calendar.HOUR_OF_DAY + " alarmTimePicker.hour " + alarmTimePicker.hour)
                 println(Calendar.MINUTE  +alarmTimePicker.minute)
 
                 alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
                 alarmManager!!.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
                         AlarmManager.INTERVAL_DAY, pendingIntent)
-//                mdialog.dismiss()
+                mdialog.dismiss()
             }else{
                 buttonView.text = "OGGLE OFF"
 
@@ -435,19 +423,11 @@ class MainActivity : AppCompatActivity() {
      */
 
 
-    fun setAlarm(message: String){
-//        timeAlarm.visibility = View.VISIBLE
-//        timeAlarm.text = message
-        log("KKKKKKKKK " + message)
-//        alarmText.text = message
-    }
-
     fun hideKeyboard() {
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         if (inputManager.isAcceptingText) {
             inputManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
         }
-
     }
 
     private fun log(msg: String) {

@@ -18,6 +18,7 @@ import com.kevinjanvier.mytithe.service.AlarmService
 /**
  * Created by kevinjanvier on 26/01/2018.
  */
+@Suppress("DEPRECATION")
 class AlarmReceiver: WakefulBroadcastReceiver() {
 
     lateinit var ringtone:Ringtone
@@ -41,8 +42,7 @@ class AlarmReceiver: WakefulBroadcastReceiver() {
 
         // this will send the notification message
 
-        val comp = ComponentName(context?.packageName,
-                AlarmService::class.java.name)
+        val comp = ComponentName(context?.packageName, AlarmService::class.java.name)
         WakefulBroadcastReceiver.startWakefulService(context, intent!!.setComponent(comp))
         resultCode = Activity.RESULT_OK
 
