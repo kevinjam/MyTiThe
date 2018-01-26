@@ -2,6 +2,8 @@
 # MyTithe Android Application written in Kotlin
 [![Build Status](https://travis-ci.org/kevinjam/MyTiThe.svg?branch=develop)](https://travis-ci.org/kevinjam/MyTiThe)
 
+![](http://i65.tinypic.com/20ij5lc.jpg)
+
 This project is a wrapper for the [Calculate My Tithe](http://kevinjanvier.com/mytithe).
 
 The first tithe is giving of one tenth of agricultural produce (after the giving of the standard terumah) to the Levite (or Aaronic priests).
