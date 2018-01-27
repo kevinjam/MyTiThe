@@ -2,10 +2,7 @@ package com.kevinjanvier.mytithe.controller
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
-import android.app.Activity
-import android.app.AlarmManager
-import android.app.Dialog
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -34,7 +31,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import com.kevinjanvier.mytithe.R
 import com.kevinjanvier.mytithe.utils.AlarmReceiver
-import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -106,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             showPopup()
         }
 
-        bannerAdviews()
+        loadingBanner()
         calculateTithe()
 
         calculate.setOnClickListener{
@@ -320,7 +316,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent.createChooser(shareInt, "send To"))
     }
 
-    private fun bannerAdviews() {
+    private fun loadingBanner() {
         val ad_request: AdRequest = AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build()
@@ -384,7 +380,6 @@ class MainActivity : AppCompatActivity() {
         var calendar: Calendar
         alarmTimePicker = mdialog.findViewById<TimePicker>(R.id.alarmTimePicker)
         val tooglebtn = mdialog.findViewById<ToggleButton>(R.id.alarmToggle)
-
 
 
         tooglebtn.setOnCheckedChangeListener { buttonView, isChecked ->

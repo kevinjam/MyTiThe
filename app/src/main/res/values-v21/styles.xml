@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyToggle" parent="@android:style/Widget.Material.Light.Button.Toggle">
+        <item name="android:textColorPrimary">#d84315</item>
+        <item name="colorAccent">#0288d1</item>
+        <item name="android:colorControlNormal">#f9a825</item>
+        <item name="android:colorControlHighlight">#880e4f</item>
+        <item name="android:colorButtonNormal">#b9f6ca</item>
+    </style>
+</resources>

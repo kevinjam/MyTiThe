@@ -21,4 +21,6 @@
     <string name="playstore_link">http://play.google.com/store/apps/details?id=</string>
     <string name="next">NEXT</string>
     <string name="skip">Skip</string>
+    <string name="give_to_the_one_who_asks_you_and_do_not_turn_away_from_the_one_who_wants_to_borrow_from_you">Give to the one who asks you, and do not turn away from the one who wants to borrow from you</string>
+    <string name="set_alarm">Reminder</string>
 </resources>

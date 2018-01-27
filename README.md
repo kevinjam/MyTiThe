@@ -5,6 +5,12 @@
 ![](http://i65.tinypic.com/20ij5lc.jpg)
 
 This project is a wrapper for the [Calculate My Tithe](http://kevinjanvier.com/mytithe).
+Download this App on PlayStore
+<p align="center">
+<a href="https://play.google.com/store/apps/details?id=com.kevinjanvier.mytithe&hl=en">
+<img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/fr_get.svg" width="20%"></a>
+</p>
+
 
 The first tithe is giving of one tenth of agricultural produce (after the giving of the standard terumah) to the Levite (or Aaronic priests).
 Historically, during the First Temple period, the first tithe was given to the Levites.

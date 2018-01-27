@@ -11,6 +11,10 @@ import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.kevinjanvier.mytithe.R
 
 class Intro : AppCompatActivity() {
@@ -21,6 +25,7 @@ class Intro : AppCompatActivity() {
     private var btnNext: Button? = null
     private var dotsLayout: LinearLayout? = null
     private var viewPager: ViewPager? = null
+    lateinit var mAdView : AdView
 
 
     private val viewpageListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
@@ -30,6 +35,9 @@ class Intro : AppCompatActivity() {
 
         override fun onPageSelected(position: Int) {
             addBottomDots(position)
+
+
+            //ads
         }
 
     }
@@ -47,6 +55,7 @@ class Intro : AppCompatActivity() {
         btnNext = findViewById(R.id.btn_next)
 
         layouts = intArrayOf(R.layout.step_one, R.layout.step_two, R.layout.step_tree)
+
         addBottomDots(0)
 
         adapter = MyViewPagerAdapter()
@@ -68,7 +77,6 @@ class Intro : AppCompatActivity() {
             }
         }
 
-
     }
 
 
@@ -88,6 +96,20 @@ class Intro : AppCompatActivity() {
 
         if (dots.isNotEmpty())
             dots[currentPage]!!.setTextColor(colorsActive)
+
+
+//        val adview = AdView(this)
+//        adview.adSize = AdSize.BANNER
+//        adview.adUnitId = getString(R.string.ad_unit)
+
+//        MobileAds.initialize(this,
+//                getString(R.string.ad_unit))
+//
+//        mAdView = findViewById(R.id.adView)
+//        val adRequest = AdRequest.Builder().build()
+//        mAdView.loadAd(adRequest)
+//
+
     }
 
     private fun getItem(i: Int): Int {

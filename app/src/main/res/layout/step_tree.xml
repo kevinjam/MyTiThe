@@ -47,5 +47,6 @@
             android:layout_height="@dimen/space280"
             android:scaleType="fitXY"
             android:src="@drawable/ic_status"/>
+
     </LinearLayout>
 </RelativeLayout>

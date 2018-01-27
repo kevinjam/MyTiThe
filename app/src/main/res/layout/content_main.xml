@@ -21,10 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/findmytith"
+            android:text="@string/give_to_the_one_who_asks_you_and_do_not_turn_away_from_the_one_who_wants_to_borrow_from_you"
             android:textColor="@color/red"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textStyle="italic"
             android:visibility="gone"/>
 
         <TextView
@@ -214,7 +214,7 @@
             android:layout_height="wrap_content"
             ads:adSize="BANNER"
             android:layout_marginBottom="@dimen/space15"
-            ads:adUnitId="@string/ad_unit"></com.google.android.gms.ads.AdView>
+            ads:adUnitId="@string/ad_unit"/>
     </LinearLayout>
 
 </LinearLayout>
