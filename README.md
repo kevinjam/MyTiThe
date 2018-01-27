@@ -5,10 +5,10 @@
 ![](http://i65.tinypic.com/20ij5lc.jpg)
 
 This project is a wrapper for the [Calculate My Tithe](http://kevinjanvier.com/mytithe).
+<p align="left">
 Download this App on PlayStore
-<p align="center">
-<a href="https://play.google.com/store/apps/details?id=com.kevinjanvier.mytithe&hl=en">
-<img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/fr_get.svg" width="20%"></a>
+<a href="https://play.google.com/store/apps/details?id=com.kevinjanvier.mytithe&hl=en" target="_blank">
+<img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/fr_get.svg" width="15%"></a>
 </p>
 
 
